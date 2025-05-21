@@ -8,10 +8,11 @@ The code is part of our paper accepted at *KDD'25*. If you use this repo or Quan
 
 <pre lang="markdown"> 
 @inproceedings{orka2025fqn,
-  author    = {Nabil Anan Orka and Ehtashamul Haque and Md. Abdul Awal and Mohammad Ali Moni},
+  author    = {Orka, Nabil Anan and Haque, Ehtashamul and Awal, Md. Abdul and Moni, Mohammad Ali},
   title     = {Fully Quanvolutional Networks for Time Series Classification},
-  booktitle = {Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, Volume 2 (KDD '25)},
+  booktitle = {Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25)},
   year      = {2025},
+  volume    = {2},
   pages     = {12 pages}
   address   = {Toronto, ON, Canada},
   publisher = {ACM}
