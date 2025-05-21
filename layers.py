@@ -74,14 +74,14 @@ class Measurement(nn.Module):
         Z = torch.tensor([[1, 0], [0, -1]], dtype=torch.complex64, device=self.device)
         results = []
         for i in range(self.num_wires):
-            operator = torch.tensor(1, dtype=torch.complex64, device=device)
+            operator = torch.tensor(1, dtype=torch.complex64, device=self.device)
             for j in range(self.num_wires):
                 if i == j:
                     operator = torch.kron(operator, Z)
                 else:
                     operator = torch.kron(operator, I)
             results.append(operator)
-        return torch.stack(results).to(device)
+        return torch.stack(results).to(self.device)
 
     def forward(self):
         return self.obs_list
@@ -101,8 +101,8 @@ class Quanv1d(nn.Module):
         self.noise = noise
 
         self.qubit_norm = QubitNormalization(self.num_wires, self.temp, apply_noise=self.noise)
-        self.unitary_op = Unitary(self.num_filters, self.num_layers, self.num_wires, device, apply_noise=self.noise)
-        self.measurement_op = Measurement(self.num_wires, device)
+        self.unitary_op = Unitary(self.num_filters, self.num_layers, self.num_wires, self.device, apply_noise=self.noise)
+        self.measurement_op = Measurement(self.num_wires, self.device)
 
         self.weight = nn.Parameter(nn.init.kaiming_uniform_(torch.randn((self.num_filters, self.num_layers, self.num_wires, 2), device=self.device)), requires_grad=True)
         self.bias = nn.Parameter(torch.zeros(out_channels, device=self.device), requires_grad=True) if bias else None
