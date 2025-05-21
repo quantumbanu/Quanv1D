@@ -12,6 +12,7 @@ The code is part of our paper accepted at *KDD'25*. If you use this repo or Quan
   title     = {Fully Quanvolutional Networks for Time Series Classification},
   booktitle = {Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, Volume 2 (KDD '25)},
   year      = {2025},
+  pages     = {12 pages}
   address   = {Toronto, ON, Canada},
   publisher = {ACM}
 }
