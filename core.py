@@ -87,21 +87,21 @@ class Measurement(nn.Module):
         return self.obs_list
 
 class Quanv1d(nn.Module):
-"""
-Our proposed Quanv1D layer that works on data of shape (batch_size, channels, sequence_length).
-
-Parameters
-----------
-temp : float
-    Regulates the distribution of attention across time points while classical-to-quantum encoding. Higher values result in more evenly 
-    distributed attention, while lower values emphasize discrete feature selection.
+    """
+    Our proposed Quanv1D layer that works on data of shape (batch_size, channels, sequence_length).
     
-shots : int
-    Number of repetitions for quantum measurement to gather statistics. If 0, analytical values are used.
-
-noise : bool
-    If True, enables quantum noise simulation to emulate real-world quantum behavior.
-"""
+    Parameters
+    ----------
+    temp : float
+        Regulates the distribution of attention across time points while classical-to-quantum encoding. Higher values result in more evenly 
+        distributed attention, while lower values emphasize discrete feature selection.
+        
+    shots : int
+        Number of repetitions for quantum measurement to gather statistics. If 0, analytical values are used.
+    
+    noise : bool
+        If True, enables quantum noise simulation to emulate real-world quantum behavior.
+    """
     def __init__(self, in_channels: int, out_channels: int, kernel_size: int, stride: int, padding: int, dilation: int,
                  bias=False, device="cpu", temp: float=1.0, shots: int=0, noise=False):
         super().__init__()
